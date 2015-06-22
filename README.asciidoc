@@ -50,6 +50,7 @@ BPMS CREDS:
 http://dcbpms-lincolnbaxter.rhcloud.com/
 ssh://55889e1ae0b8cdb275000074@dcbpms-lincolnbaxter.rhcloud.com/~/git/dcbpms.git/
 
+[source,text]
 ++++
 Red Hat JBoss BPM Suite 6.0.2 cartridge installed.  Please make note of these credentials:
 
