@@ -13,9 +13,6 @@ Members:
 
 Credentials:
 ============
-FeedHenry 
-gegastaldi@gmail.com
-n0th1ng
+FeedHenry: gegastaldi@gmail.com / n0th1ng
 
-DataVirt UI Admin Console:
-admin/admin
+DataVirt UI Admin Console: admin / admin
