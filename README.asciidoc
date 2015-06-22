@@ -72,7 +72,9 @@ Back end
 =========
 * Award points
 input: { user_auth, points }
++
 output: { success / fail }
++
 desc: Request approved, user awarded points, user notified
 
 * Request denied
