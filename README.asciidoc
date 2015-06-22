@@ -7,5 +7,5 @@ Members:
 
 * Lincoln Baxter, III
 * George Gastaldi
-* Sal Elharal
-* Asaran
+* Sal Elrahal
+* Anurag Saran
