@@ -44,3 +44,38 @@ Credentials:
 FeedHenry: gegastaldi@gmail.com / n0th1ng
 
 BPMS instance: map-georgegastaldi.rhcloud.com
+
+
+Services Design:
+================
+
+Front end
+=========
+
+* Barcode To Medicine Information
+input: { UPC }
+output: { medicine name, description, points per qty }
+desc: Mobile user scans barcode
+
+* Send medicine request
+input: { UPC, quantity, user_auth }
+output: { success / fail }
+desc: Mobile user requests to send medicine
+
+* Get points
+input: { user_auth }
+output: { points }
+desc: Mobile user checks points
+
+
+Back end
+=========
+* Award points
+input: { user_auth, points }
+output: { success / fail }
+desc: Request approved, user awarded points, user notified
+
+* Request denied
+input: { user_auth, UPC, quantity }
+output: { success / fail }
+desc: Request denied, user notified
