@@ -48,6 +48,7 @@ BPMS instance: map-georgegastaldi.rhcloud.com
 BPMS CREDS:
 ===========
 http://dcbpms-lincolnbaxter.rhcloud.com/
++
 ssh://55889e1ae0b8cdb275000074@dcbpms-lincolnbaxter.rhcloud.com/~/git/dcbpms.git/
 
 [source,text]
