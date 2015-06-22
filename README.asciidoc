@@ -2,3 +2,10 @@ devnation-challenge-2015
 =========================
 
 This is the winner project for the DevNation code challenge 2015
+
+Members: 
+
+* Lincoln Baxter, III
+* George Gastaldi
+* Sal Elharal
+* Asaran
