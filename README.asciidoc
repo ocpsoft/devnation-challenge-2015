@@ -45,6 +45,43 @@ FeedHenry: gegastaldi@gmail.com / n0th1ng
 
 BPMS instance: map-georgegastaldi.rhcloud.com
 
+BPMS CREDS:
+===========
+http://dcbpms-lincolnbaxter.rhcloud.com/
+ssh://55889e1ae0b8cdb275000074@dcbpms-lincolnbaxter.rhcloud.com/~/git/dcbpms.git/
+
+++++
+Red Hat JBoss BPM Suite 6.0.2 cartridge installed.  Please make note of these credentials:
+
+             BPMS Admin User: bpm-admin
+                    Password: wN-TngsS4PSX
+
+           BPMS Analyst User: bpm-analyst
+                    Password: Zz9EiWXMsdXF
+
+         BPMS Developer User: bpm-developer
+                    Password: yK5nYgeSP2-J
+
+              BPMS User User: bpm-user
+                    Password: 41a5TZ6nYnEH
+
+           BPMS Manager User: bpm-manager
+       BPMS Manager Password: Afc5gZvxL2r2
+
+               BAM Root User: root
+                    Password: 4_uNKQDlpHw6
+
+            BPM Example User: loan
+                    Password: 42--pNhLwNz5
+
+Configuration files: 
+- You can add/modify/show/remove users and roles using the following files in your cartridge git repository:
+   - Users -> .openshift/config/bpms-users.properties
+   - Roles -> .openshift/config/bpms-roles.properties
+2.- You can modify the JBoss EAP standalone configuration file used for the BPMS application in your cartridge git repository at path .openshift/config/standalone.xml
+3.- You can modify the Maven settings configuration file used for the BPMS application in your cartridge git repository at path .openshift/config/settings.xml
+++++
+
 
 Services Design:
 ================
