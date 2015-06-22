@@ -51,7 +51,7 @@ http://dcbpms-lincolnbaxter.rhcloud.com/
 ssh://55889e1ae0b8cdb275000074@dcbpms-lincolnbaxter.rhcloud.com/~/git/dcbpms.git/
 
 [source,text]
-++++
+----
 Red Hat JBoss BPM Suite 6.0.2 cartridge installed.  Please make note of these credentials:
 
              BPMS Admin User: bpm-admin
@@ -81,7 +81,7 @@ Configuration files:
    - Roles -> .openshift/config/bpms-roles.properties
 2.- You can modify the JBoss EAP standalone configuration file used for the BPMS application in your cartridge git repository at path .openshift/config/standalone.xml
 3.- You can modify the Maven settings configuration file used for the BPMS application in your cartridge git repository at path .openshift/config/settings.xml
-++++
+----
 
 
 Services Design:
