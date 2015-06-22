@@ -1,5 +1,33 @@
 devnation-challenge-2015
 =========================
+TheGivingNation.
+
+In developing coutries, there the poor cannot afford expensive medicienes and generally have to live through the sickness, while the rich and the middle class ends up buying much more medicince than what they need. Few of the reason are:
+
+1. That medicines are still not controlled as in the developed countires like US.
+2. Customers buy medicines in packs of 6 or 12 even if they need one or two tablets. 
+3. The left over medicines eventually expire and aare thrown.
+
+The giving nation plan to help solve this problem.
+
+1. The patient who buys the medicine registers the medicine by scanning the bar code and entering the experiy date.
+2. The app would remind the patient before the expiry date of the medicine, if he still has any unopened medicine left that he would like to donate.
+3. If the customer chooses so, he is sent mailed a packet to send in his medicines.
+4. The patient who needs the medicine can submit the request of the tablets/medicine he needs.
+5. The engine matches the medicne request with the inventory and sends the medicine to the needy patient.
+
+Key Redhat Technology used and the functionality implemented using it.
+
+FeedHenry:
+The mobile application will be built on anroid and iphone to to enable the user to scan the bar code and submit request for medicine.
+BPMS:
+Once the request to donate medicine is submitted a BPMS process is kick started. The BPMS process user kets a task asigned to review the medicine to confirm the medicine is not used and in condition to be used.
+BRMS:
+Rules are used to award points based on the no of medicine donated by a user.
+OpenShift:
+BPMS/BRMS is run in the openshift.
+Fuse:
+Used to make a webservice call to USPC service.
 
 This is the winner project for the DevNation code challenge 2015
 
