@@ -43,4 +43,4 @@ Credentials:
 ============
 FeedHenry: gegastaldi@gmail.com / n0th1ng
 
-DataVirt UI Admin Console: admin / admin
+BPMS instance: map-georgegastaldi.rhcloud.com
