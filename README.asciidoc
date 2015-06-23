@@ -101,7 +101,7 @@ desc: Mobile user scans barcode
 
 * Send medicine request
 +
-input: { UPC, quantity, user_auth }
+input: { UPC, quantity, auth }
 +
 output: { success / fail }
 +
@@ -109,7 +109,7 @@ desc: Mobile user requests to send medicine
 
 * Get points
 +
-input: { user_auth }
+input: { auth }
 +
 output: { points }
 +
@@ -120,7 +120,7 @@ Back end
 =========
 * Award points
 +
-input: { user_auth, points }
+input: { auth, points }
 +
 output: { success / fail }
 +
@@ -128,7 +128,7 @@ desc: Request approved, user awarded points, user notified
 
 * Request denied
 +
-input: { user_auth, UPC, quantity }
+input: { auth, UPC, quantity }
 +
 output: { success / fail }
 +
