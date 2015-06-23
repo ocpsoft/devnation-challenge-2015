@@ -1,11 +1,14 @@
 package org.tgn.dao;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+
 import org.tgn.model.Medicine;
 
 /**
@@ -40,7 +43,30 @@ public class MedicineDao
    {
       TypedQuery<Medicine> findAllQuery = em.createQuery(
                "SELECT DISTINCT m FROM Medicine m ORDER BY m.upc", Medicine.class);
-      return findAllQuery.getSingleResult();
+      Medicine result = new Medicine();
+      try
+      {
+         result = findAllQuery.getSingleResult();
+      }
+      catch (NoResultException e)
+      {
+         result.setUpc(upc);
+         result.setName(UUID.randomUUID().toString());
+         result.setPointValue((int) Math.random());
+         // try
+         // {
+         // URLConnection connection = new URL(
+         // "http://api.upcdatabase.org/json/1199a00f710cd4b3f0e79be87e0bae10/" + upc).openConnection();
+         // Object content = connection.getContent();
+         // result.setName(upc);
+         // }
+         // catch (Exception e2)
+         // {
+         // // dont care
+         // }
+         update(result);
+      }
+      return result;
    }
 
    public Medicine update(Medicine entity)

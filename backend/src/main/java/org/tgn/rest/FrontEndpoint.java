@@ -1,9 +1,6 @@
 package org.tgn.rest;
 
-import java.util.UUID;
-
 import javax.inject.Inject;
-import javax.persistence.NoResultException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -29,31 +26,7 @@ public class FrontEndpoint
    @Produces({ "application/json" })
    public Medicine lookupUPC(@QueryParam("upc") String upc)
    {
-      Medicine result;
-      try
-      {
-         result = medicineDao.findByUpc(upc);
-      }
-      catch (NoResultException e)
-      {
-         result = new Medicine();
-         result.setUpc(upc);
-         result.setName(UUID.randomUUID().toString());
-         result.setPointValue((int) Math.random());
-         // try
-         // {
-         // URLConnection connection = new URL(
-         // "http://api.upcdatabase.org/json/1199a00f710cd4b3f0e79be87e0bae10/" + upc).openConnection();
-         // Object content = connection.getContent();
-         // result.setName(upc);
-         // }
-         // catch (Exception e2)
-         // {
-         // // dont care
-         // }
-         medicineDao.update(result);
-      }
-      return result;
+      return medicineDao.findByUpc(upc);
    }
 
    @GET
