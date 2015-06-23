@@ -37,7 +37,7 @@ Members:
 * George Gastaldi
 * Sal Elrahal
 * Anurag Saran
-
+* Joshua Wilson
 
 Credentials:
 ============
