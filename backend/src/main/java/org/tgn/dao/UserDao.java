@@ -45,8 +45,8 @@ public class UserDao
       User result;
       try
       {
-         result = findAllQuery.getSingleResult();
          findAllQuery.setParameter("username", username);
+         result = findAllQuery.getSingleResult();
       }
       catch (NoResultException e)
       {
