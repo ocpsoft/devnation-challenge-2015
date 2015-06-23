@@ -18,6 +18,9 @@ public class BackEndpoint
    @Inject
    private UserDao userDao;
 
+   @Inject
+   private FrontEndpoint frontEndpoint;
+
    @GET
    @Path("awardPoints")
    public Response awardPoints(@QueryParam("auth") String username, @QueryParam("points") int points)
@@ -33,6 +36,7 @@ public class BackEndpoint
    public Response denyRequest(@QueryParam("auth") String username, @QueryParam("upc") String upc,
             @QueryParam("quantity") int quantity)
    {
+      frontEndpoint.lookupUPC(upc);
       return Response.ok().build();
    }
 }

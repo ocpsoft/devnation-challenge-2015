@@ -25,10 +25,10 @@ public class Medicine implements Serializable
    private String upc;
 
    @Column
-   private String pointValue;
+   private String name;
 
    @Column
-   private String name;
+   private int pointValue;
 
    public Long getId()
    {
@@ -70,36 +70,14 @@ public class Medicine implements Serializable
       this.name = name;
    }
 
-   public String getPointValue()
+   public int getPointValue()
    {
       return pointValue;
    }
 
-   public void setPointValue(String pointValue)
+   public void setPointValue(int points)
    {
-      this.pointValue = pointValue;
-   }
-
-   @Override
-   public boolean equals(Object obj)
-   {
-      if (this == obj)
-      {
-         return true;
-      }
-      if (!(obj instanceof Medicine))
-      {
-         return false;
-      }
-      Medicine other = (Medicine) obj;
-      if (id != null)
-      {
-         if (!id.equals(other.id))
-         {
-            return false;
-         }
-      }
-      return true;
+      this.pointValue = points;
    }
 
    @Override
@@ -107,20 +85,39 @@ public class Medicine implements Serializable
    {
       final int prime = 31;
       int result = 1;
-      result = prime * result + ((id == null) ? 0 : id.hashCode());
+      result = prime * result + ((name == null) ? 0 : name.hashCode());
+      result = prime * result + pointValue;
+      result = prime * result + ((upc == null) ? 0 : upc.hashCode());
       return result;
    }
 
    @Override
-   public String toString()
+   public boolean equals(Object obj)
    {
-      String result = getClass().getSimpleName() + " ";
-      if (upc != null && !upc.trim().isEmpty())
-         result += "upc: " + upc;
-      if (pointValue != null && !pointValue.trim().isEmpty())
-         result += ", pointValue: " + pointValue;
-      if (name != null && !name.trim().isEmpty())
-         result += ", name: " + name;
-      return result;
+      if (this == obj)
+         return true;
+      if (obj == null)
+         return false;
+      if (getClass() != obj.getClass())
+         return false;
+      Medicine other = (Medicine) obj;
+      if (name == null)
+      {
+         if (other.name != null)
+            return false;
+      }
+      else if (!name.equals(other.name))
+         return false;
+      if (pointValue != other.pointValue)
+         return false;
+      if (upc == null)
+      {
+         if (other.upc != null)
+            return false;
+      }
+      else if (!upc.equals(other.upc))
+         return false;
+      return true;
    }
+
 }

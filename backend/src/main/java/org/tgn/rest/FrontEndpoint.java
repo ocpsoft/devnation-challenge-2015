@@ -1,6 +1,9 @@
 package org.tgn.rest;
 
+import java.util.UUID;
+
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -26,7 +29,19 @@ public class FrontEndpoint
    @Produces({ "application/json" })
    public Medicine lookupUPC(@QueryParam("upc") String upc)
    {
-      return medicineDao.findByUpc(upc);
+      Medicine result;
+      try
+      {
+         result = medicineDao.findByUpc(upc);
+      }
+      catch (NoResultException e)
+      {
+         result = new Medicine();
+         result.setUpc(upc);
+         result.setName(UUID.randomUUID().toString());
+         result.setPointValue((int) Math.random());
+      }
+      return result;
    }
 
    @GET
@@ -45,6 +60,7 @@ public class FrontEndpoint
    public Response sendMedicineRequest(@QueryParam("auth") String username, @QueryParam("upc") String upc,
             @QueryParam("quantity") int quantity)
    {
+      lookupUPC(upc);
       return Response.ok().build();
    }
 }
