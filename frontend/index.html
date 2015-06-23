@@ -34,7 +34,7 @@
 			</div>
 		</form>
 		<button class="btn btn-primary btn-block" ng-disabled="devnationForm.$invalid" ng-click="submitUPCQuantity(upc.username, upc.code, upc.quantity)">Send Medicine</button>
-		<button class="btn btn-secondary btn-block" ng-click="checkUPC(upc.code)" ng-enabled="upc.username && upc.code">Check UPC</button>
+		<button class="btn btn-secondary btn-block" ng-click="checkUPC(upc.code)" ng-disabled="devnationForm.UPC.$error.required">Check UPC</button>
 	</div>	
 </body>
 </html>
