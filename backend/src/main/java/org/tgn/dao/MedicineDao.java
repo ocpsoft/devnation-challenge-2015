@@ -42,10 +42,11 @@ public class MedicineDao
    public Medicine findByUpc(String upc)
    {
       TypedQuery<Medicine> findAllQuery = em.createQuery(
-               "SELECT DISTINCT m FROM Medicine m ORDER BY m.upc", Medicine.class);
+               "SELECT DISTINCT m FROM Medicine m WHERE m.upc = :upc", Medicine.class);
       Medicine result = new Medicine();
       try
       {
+         findAllQuery.setParameter("upc", upc);
          result = findAllQuery.getSingleResult();
       }
       catch (NoResultException e)
