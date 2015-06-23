@@ -97,7 +97,7 @@ Front end
 +
 `/rest/frontend/lookupUpc`
 +
-input: { UPC }
+input: { upc(String) }
 +
 output: { medicine name, description, points per qty }
 +
@@ -107,7 +107,7 @@ desc: Mobile user scans barcode
 +
 `/rest/frontend/sendMedicine`
 +
-input: { UPC, quantity, auth }
+input: { auth(String), upc(String), quantity(int) }
 +
 output: { success / fail }
 +
@@ -117,7 +117,7 @@ desc: Mobile user requests to send medicine
 +
 `/rest/frontend/checkPoints`
 +
-input: { auth }
+input: { auth(String) }
 +
 output: { points }
 +
@@ -130,7 +130,7 @@ Back end
 +
 `/rest/backend/awardPoints`
 +
-input: { auth, points }
+input: { auth(String), points(int) }
 +
 output: { success / fail }
 +
@@ -139,7 +139,8 @@ desc: Request approved, user awarded points, user notified
 * Request denied
 +
 `/rest/backend/denyRequest`
-input: { auth, UPC, quantity }
++
+input: { auth(String), upc(String), quantity(int) }
 +
 output: { success / fail }
 +
