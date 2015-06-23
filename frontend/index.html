@@ -23,16 +23,13 @@
 			<input type="text" name="UPC" class="form-control" ng-required="true" ng-model="upc.code" placeholder="UPC"/>
 			<div ng-show="devnationForm.UPC.$dirty" ng-messages="devnationForm.UPC.$error">
 				<div ng-message="required" class="alert alert-danger">
-					The UPC is invalid
+					Please fill the UPC!
 				</div>
 			</div>
 			<input type="number" name="quantity" class="form-control" ng-required="true" ng-model="upc.quantity" placeholder="Quantity"/>
 			<div ng-show="devnationForm.quantity.$dirty" ng-messages="devnationForm.quantity.$error">
 				<div ng-message="required" class="alert alert-danger">
-					Please fill a valid Quantity
-				</div>
-				<div ng-message="pattern" class="alert alert-danger">
-					Quantity should accept numbers only.
+					Please fill a valid Quantity!
 				</div>
 			</div>
 		</form>
