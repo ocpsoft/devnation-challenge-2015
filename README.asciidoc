@@ -5,7 +5,7 @@ TheGivingNation.
 In developing coutries, there the poor cannot afford expensive medicienes and generally have to live through the sickness, while the rich and the middle class ends up buying much more medicince than what they need. Few of the reason are:
 
 1. That medicines are still not controlled as in the developed countires like US.
-2. Customers buy medicines in packs of 6 or 12 even if they need one or two tablets. 
+2. Customers buy medicines in packs of 6 or 12 even if they need one or two tablets.
 3. The left over medicines eventually expire and aare thrown.
 
 The giving nation plan to help solve this problem.
@@ -31,7 +31,7 @@ Used to make a webservice call to USPC service.
 
 This is the winner project for the DevNation code challenge 2015
 
-Members: 
+Members:
 
 * Lincoln Baxter, III
 * George Gastaldi
@@ -76,7 +76,7 @@ Red Hat JBoss BPM Suite 6.0.2 cartridge installed.  Please make note of these cr
             BPM Example User: loan
                     Password: 42--pNhLwNz5
 
-Configuration files: 
+Configuration files:
 - You can add/modify/show/remove users and roles using the following files in your cartridge git repository:
    - Users -> .openshift/config/bpms-users.properties
    - Roles -> .openshift/config/bpms-roles.properties
@@ -93,6 +93,8 @@ Front end
 
 * Barcode To Medicine Information
 +
+/rest/frontend/lookupUpc
++
 input: { UPC }
 +
 output: { medicine name, description, points per qty }
@@ -101,6 +103,8 @@ desc: Mobile user scans barcode
 
 * Send medicine request
 +
+/rest/frontend/sendMedicine
++
 input: { UPC, quantity, auth }
 +
 output: { success / fail }
@@ -108,6 +112,8 @@ output: { success / fail }
 desc: Mobile user requests to send medicine
 
 * Get points
++
+/rest/frontend/checkPoints
 +
 input: { auth }
 +
@@ -120,6 +126,7 @@ Back end
 =========
 * Award points
 +
+/rest/backend/awardPoints
 input: { auth, points }
 +
 output: { success / fail }
@@ -128,6 +135,7 @@ desc: Request approved, user awarded points, user notified
 
 * Request denied
 +
+/rest/backend/denyRequest
 input: { auth, UPC, quantity }
 +
 output: { success / fail }
