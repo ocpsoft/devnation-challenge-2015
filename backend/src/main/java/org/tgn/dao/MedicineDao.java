@@ -1,5 +1,7 @@
 package org.tgn.dao;
 
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -55,17 +57,17 @@ public class MedicineDao
          result.setUpc(upc);
          result.setName(UUID.randomUUID().toString());
          result.setPointValue(getRealPoints());
-         // try
-         // {
-         // URLConnection connection = new URL(
-         // "http://api.upcdatabase.org/json/1199a00f710cd4b3f0e79be87e0bae10/" + upc).openConnection();
-         // Object content = connection.getContent();
-         // result.setName(upc);
-         // }
-         // catch (Exception e2)
-         // {
-         // // dont care
-         // }
+         try
+         {
+            URLConnection connection = new URL(
+                     "http://api.upcdatabase.org/json/6bde59ad83e0731469248d4618bd24d1/" + upc).openConnection();
+            Object content = connection.getContent();
+            result.setName(content.toString().replaceAll(".*\"itemname\":\"([^\"]*)\".*", "$1"));
+         }
+         catch (Exception e2)
+         {
+            // dont care
+         }
          update(result);
       }
       return result;
