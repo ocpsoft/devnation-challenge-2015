@@ -21,6 +21,10 @@
 				</div>
 			</div>
 			<input type="text" name="UPC" class="form-control" ng-required="true" ng-model="upc.code" placeholder="UPC"/>
+			<div class="alert">
+				{{upc.name}}
+			</div>
+			
 			<div ng-show="devnationForm.UPC.$dirty" ng-messages="devnationForm.UPC.$error">
 				<div ng-message="required" class="alert alert-danger">
 					Please fill the UPC!

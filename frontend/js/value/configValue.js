@@ -1,3 +1,3 @@
 angular.module("devnation").constant("config", {
-	baseUrl: ""
+	baseUrl: "http://dcbackend-lincolnbaxter.rhcloud.com"
 });
