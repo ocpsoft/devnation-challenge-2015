@@ -40,6 +40,18 @@ public class FrontEndpoint
          result.setUpc(upc);
          result.setName(UUID.randomUUID().toString());
          result.setPointValue((int) Math.random());
+         // try
+         // {
+         // URLConnection connection = new URL(
+         // "http://api.upcdatabase.org/json/1199a00f710cd4b3f0e79be87e0bae10/" + upc).openConnection();
+         // Object content = connection.getContent();
+         // result.setName(upc);
+         // }
+         // catch (Exception e2)
+         // {
+         // // dont care
+         // }
+         medicineDao.update(result);
       }
       return result;
    }
