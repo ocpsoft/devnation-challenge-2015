@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
@@ -41,8 +42,12 @@ public class UserDao
    {
       TypedQuery<User> findAllQuery = em.createQuery(
                "SELECT DISTINCT u FROM User u ORDER BY u.username", User.class);
-      User result = findAllQuery.getSingleResult();
-      if (result == null)
+      User result;
+      try
+      {
+         result = findAllQuery.getSingleResult();
+      }
+      catch (NoResultException e)
       {
          result = new User();
          result.setUsername(username);
