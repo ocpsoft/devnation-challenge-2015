@@ -37,11 +37,20 @@ public class UserDao
       return em.find(User.class, id);
    }
 
-   public User findByUsername(String upc)
+   public User findByUsername(String username)
    {
       TypedQuery<User> findAllQuery = em.createQuery(
                "SELECT DISTINCT u FROM User u ORDER BY u.username", User.class);
-      return findAllQuery.getSingleResult();
+      User result = findAllQuery.getSingleResult();
+      if (result == null)
+      {
+         result = new User();
+         result.setUsername(username);
+         result.setPoints(0);
+         create(result);
+      }
+
+      return result;
    }
 
    public User update(User entity)
