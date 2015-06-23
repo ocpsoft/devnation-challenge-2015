@@ -1,6 +1,7 @@
 package org.tgn.dao;
 
 import java.util.List;
+import java.util.Random;
 import java.util.UUID;
 
 import javax.ejb.Stateless;
@@ -53,7 +54,7 @@ public class MedicineDao
       {
          result.setUpc(upc);
          result.setName(UUID.randomUUID().toString());
-         result.setPointValue((int) Math.random());
+         result.setPointValue(getRealPoints());
          // try
          // {
          // URLConnection connection = new URL(
@@ -67,6 +68,13 @@ public class MedicineDao
          // }
          update(result);
       }
+      return result;
+   }
+
+   private int getRealPoints()
+   {
+      Random rand = new Random();
+      int result = rand.nextInt((30 - 5) + 1) + 5;
       return result;
    }
 
