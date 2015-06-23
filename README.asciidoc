@@ -87,13 +87,15 @@ Configuration files:
 
 Services Design:
 ================
+host: http://dcbackend-lincolnbaxter.rhcloud.com
+
 
 Front end
 =========
 
 * Barcode To Medicine Information
 +
-/rest/frontend/lookupUpc
+`/rest/frontend/lookupUpc`
 +
 input: { UPC }
 +
@@ -103,7 +105,7 @@ desc: Mobile user scans barcode
 
 * Send medicine request
 +
-/rest/frontend/sendMedicine
+`/rest/frontend/sendMedicine`
 +
 input: { UPC, quantity, auth }
 +
@@ -113,7 +115,7 @@ desc: Mobile user requests to send medicine
 
 * Get points
 +
-/rest/frontend/checkPoints
+`/rest/frontend/checkPoints`
 +
 input: { auth }
 +
@@ -126,7 +128,8 @@ Back end
 =========
 * Award points
 +
-/rest/backend/awardPoints
+`/rest/backend/awardPoints`
++
 input: { auth, points }
 +
 output: { success / fail }
@@ -135,7 +138,7 @@ desc: Request approved, user awarded points, user notified
 
 * Request denied
 +
-/rest/backend/denyRequest
+`/rest/backend/denyRequest`
 input: { auth, UPC, quantity }
 +
 output: { success / fail }
