@@ -1,0 +1,44 @@
+<html ng-app="devnation">
+<head>
+	<meta charset="UTF-8">
+	<title>Devnation Code Challenge 2015</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<script src="lib/angular/angular.js"></script>
+	<script src="lib/angular/angular-messages.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers/appCtrl.js"></script>
+	<script src="js/value/configValue.js"></script>
+</head>
+<body ng-controller="appCtrl">
+	<div class="jumbotron">
+		{{message}}
+		<form name="devnationForm">
+			<input type="text" name="username" class="form-control" ng-required="true" ng-model="upc.username" placeholder="Username"/>			
+			<div ng-show="devnationForm.username.$dirty" ng-messages="devnationForm.username.$error">
+				<div ng-message="required" class="alert alert-danger">
+					Please fill the user name!
+				</div>
+			</div>
+			<input type="text" name="UPC" class="form-control" ng-required="true" ng-model="upc.code" placeholder="UPC"/>
+			<div ng-show="devnationForm.UPC.$dirty" ng-messages="devnationForm.UPC.$error">
+				<div ng-message="required" class="alert alert-danger">
+					The UPC is invalid
+				</div>
+			</div>
+			<input type="number" name="quantity" class="form-control" ng-required="true" ng-model="upc.quantity" placeholder="Quantity"/>
+			<div ng-show="devnationForm.quantity.$dirty" ng-messages="devnationForm.quantity.$error">
+				<div ng-message="required" class="alert alert-danger">
+					Please fill a valid Quantity
+				</div>
+				<div ng-message="pattern" class="alert alert-danger">
+					Quantity should accept numbers only.
+				</div>
+			</div>
+		</form>
+		<button class="btn btn-primary btn-block" ng-disabled="devnationForm.$invalid" ng-click="submitUPCQuantity(upc.username, upc.code, upc.quantity)">Send Medicine</button>
+		<button class="btn btn-secondary btn-block" ng-click="checkUPC(upc.code)" ng-enabled="upc.username && upc.code">Check UPC</button>
+	</div>	
+</body>
+</html>
+
