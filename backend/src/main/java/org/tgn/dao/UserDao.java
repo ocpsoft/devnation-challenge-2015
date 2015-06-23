@@ -41,7 +41,7 @@ public class UserDao
    public User findByUsername(String username)
    {
       TypedQuery<User> findAllQuery = em.createQuery(
-               "SELECT DISTINCT u FROM User u WHERE username = :username", User.class);
+               "SELECT DISTINCT u FROM User u WHERE u.username = :username", User.class);
       User result;
       try
       {
